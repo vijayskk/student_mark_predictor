@@ -1,3 +1,5 @@
+print("Loading AI........\n\n")
+
 import joblib
 
 model = joblib.load('model.joblib')
