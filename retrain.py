@@ -7,6 +7,9 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import matplotlib.pyplot as plt
 import joblib
+from matplotlib import style
+
+
 data = pd.read_csv('student-por.csv',sep=";")
 
 
@@ -21,15 +24,6 @@ Y = np.array(data["G3"])
 Xtrain,Xtest,Ytrain,Ytest = train_test_split(X,Y,test_size=0.1)
 
 
-# plt.scatter(data["G1"],data["G3"],color='red')
-# plt.scatter(data["G2"],data["G3"],color='blue')
-# plt.scatter(data["studytime"],data["G3"],color='green')
-# plt.plot(np.unique(data["G2"]), np.poly1d(np.polyfit(data["G2"], data["G3"], 1))(np.unique(data["G2"])),c='blue')
-# plt.plot(np.unique(data["G1"]), np.poly1d(np.polyfit(data["G1"], data["G3"], 1))(np.unique(data["G1"])),c='red')
-# plt.plot(np.unique(data["studytime"]), np.poly1d(np.polyfit(data["studytime"], data["G3"], 1))(np.unique(data["studytime"])),c='green')
-
-# plt.plot()
-# plt.show()
 
 
 
@@ -44,3 +38,13 @@ print(acc)
 
 joblib.dump(model,'model.joblib')
 
+style.use("ggplot")
+
+plt.scatter(data["G1"],data["G3"],color='red')
+plt.xlabel("G1")
+plt.plot()
+plt.show()
+plt.scatter(data["G2"],data["G3"],color='blue')
+plt.xlabel("G2")
+plt.plot()
+plt.show()
